@@ -10,7 +10,12 @@ jobs:
 
 
     steps:
+    - name: Checkout the code
     - uses: actions/checkout/@v3
+    
+    - name: Build the image
     - run: docker build -t back .
       working-directory: back
-#test
+      
+    - name: Docker login
+    - run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASS }} ghcr.io
