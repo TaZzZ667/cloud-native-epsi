@@ -11,7 +11,5 @@ jobs:
 
     steps:
     - uses: actions/checkout/@v3
-    - run : cd back && ls
-    - run: ls
-      working-directory: back
+    - run: docker build -t back
     - run: docker --help
